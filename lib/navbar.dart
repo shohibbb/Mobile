@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:praktikum1/Home.dart';
+import 'package:praktikum1/HomePage.dart';
+import 'package:praktikum1/SearchPage.dart';
 
 class navbar extends StatefulWidget {
   const navbar({super.key});
@@ -18,9 +21,8 @@ class _navbarState extends State<navbar> {
   @override
   Widget build(BuildContext context) {
     final _listpage = <Widget>[
-      const Text('beranda'),
-      const Text('home'),
-      const Text('Search')
+      Home(),
+      SearchPage(),
     ];
 
     final _bottom = <BottomNavigationBarItem>[
@@ -44,7 +46,7 @@ class _navbarState extends State<navbar> {
 
     final _bottomNavBar = BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.black45,
+      backgroundColor: Colors.black87,
       items: _bottom,
       currentIndex: _selected,
       unselectedItemColor: Colors.black12,
@@ -53,9 +55,6 @@ class _navbarState extends State<navbar> {
     );
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('home'),
-      ),
       body: Center(
         child: _listpage[
           _selected

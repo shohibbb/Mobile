@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:praktikum1/Home.dart';
 import 'package:praktikum1/HomePage.dart';
 import 'package:praktikum1/SearchPage.dart';
 import 'package:get/get.dart';
@@ -15,17 +14,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       // initialRoute: '/',
       home: navbar(),
-      // theme: ThemeData.dark().copyWith(
-      //   scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
-      // ),
-      // home: Scaffold(
-      //   body: ListView(children: const [
-      //     Home(),
-      //   ]),
-      // ),
     );
   }
 }
