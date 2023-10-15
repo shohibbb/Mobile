@@ -29,7 +29,7 @@ class SearchPage extends StatelessWidget {
                     width: 395 * fem,
                     height: 50 * fem,
                     decoration: BoxDecoration(
-                      color: Colors.black45,
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(10 * fem)
                     ),
                     child: const Row(

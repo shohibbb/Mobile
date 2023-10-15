@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:praktikum1/Home.dart';
-import 'package:praktikum1/HomePage.dart';
-import 'package:praktikum1/SearchPage.dart';
+import 'package:praktikum1/Search.dart';
 
 class navbar extends StatefulWidget {
   const navbar({super.key});
@@ -22,7 +21,7 @@ class _navbarState extends State<navbar> {
   Widget build(BuildContext context) {
     final _listpage = <Widget>[
       Home(),
-      SearchPage(),
+      SearchBarApp(),
     ];
 
     final _bottom = <BottomNavigationBarItem>[
@@ -46,10 +45,10 @@ class _navbarState extends State<navbar> {
 
     final _bottomNavBar = BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.black87,
+      backgroundColor: Colors.black,
       items: _bottom,
       currentIndex: _selected,
-      unselectedItemColor: Colors.black12,
+      unselectedItemColor: Colors.grey,
       selectedItemColor: Colors.blueAccent,
       onTap: onTap,
     );

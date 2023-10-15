@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:get/get.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class FlagController extends GetxController {
+  final flags = <String>[
+    'assets/page-1/images/china.png',
+    'assets/page-1/images/jepang.png',
+    'assets/page-1/images/korea.png',
+    'assets/page-1/images/icon-color-palette.png',
+    'assets/page-1/images/icon-colored-palette.png',
+  ].obs;
 
-  @override
-  _Home createState() => _Home();
 }
 
-class _Home extends State<Home> {
+class Home extends StatelessWidget {
+  final flagController = Get.put(FlagController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color(0xFF34303E),
       body: Column(
         children: <Widget>[
           CarouselSlider(
@@ -22,7 +29,7 @@ class _Home extends State<Home> {
               autoPlayInterval: const Duration(seconds: 2),
             ),
             items: [
-              'assets/page-1/images/rectangle-5-bg.png',
+              'assets/page-1/images/sukuna.png',
               'assets/page-1/images/onepeace.png',
               'assets/page-1/images/opm.png',
             ].map((String imagePath) {
@@ -41,62 +48,72 @@ class _Home extends State<Home> {
               );
             }).toList(),
           ),
-          const SizedBox(height: 20),
-          Row(
+          const SizedBox(height: 30),
+          Obx(() => Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Container(
-                width: 50,
-                height: 50,
-                child: ClipOval(
-                  child: Image.asset(
-                    'assets/page-1/images/china.png',
-                    fit: BoxFit.cover,
+              for (var flagPath in flagController.flags)
+                SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: ClipOval(
+                    child: Image.asset(
+                      flagPath,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                width: 50,
-                height: 50,
-                child: ClipOval(
-                  child: Image.asset(
-                    'assets/page-1/images/jepang.png',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              Container(
-                width: 50,
-                height: 50, // Sesuaikan dengan ukuran yang Anda inginkan
-                child: ClipOval(
-                  child: Image.asset(
-                    'assets/page-1/images/korea.png',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              Container(
-                width: 50, // Sesuaikan dengan ukuran yang Anda inginkan
-                height: 50, // Sesuaikan dengan ukuran yang Anda inginkan
-                child: ClipOval(
-                  child: Image.asset(
-                    'assets/page-1/images/icon-color-palette.png',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              Container(
-                width: 50, // Sesuaikan dengan ukuran yang Anda inginkan
-                height: 50, // Sesuaikan dengan ukuran yang Anda inginkan
-                child: ClipOval(
-                  child: Image.asset(
-                    'assets/page-1/images/icon-colored-palette.png',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
             ],
-          ),
+          )),
+          const SizedBox(height: 30),
+          Container(
+            width: 441,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(11),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 0, 13, 0),
+                  width: 124,
+                  height: 208,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(11),
+                    child: Image.asset(
+                      'assets/page-1/images/eren.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 0, 13, 0),
+                  width: 124,
+                  height: 208,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(11),
+                    child: Image.asset(
+                      'assets/page-1/images/kny.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 0, 11, 0),
+                  width: 124,
+                  height: 208,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(11),
+                    child: Image.asset(
+                      'assets/page-1/images/csm.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+
         ],
       ),
     );
