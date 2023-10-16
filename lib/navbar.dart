@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:praktikum1/Home.dart';
 import 'package:praktikum1/Search.dart';
+import 'package:praktikum1/profile.dart';
 
 class navbar extends StatefulWidget {
   const navbar({super.key});
@@ -19,12 +20,13 @@ class _navbarState extends State<navbar> {
   }
   @override
   Widget build(BuildContext context) {
-    final _listpage = <Widget>[
+    final listpage = <Widget>[
       Home(),
-      SearchBarApp(),
+      const SearchBarApp(),
+      Profile()
     ];
 
-    final _bottom = <BottomNavigationBarItem>[
+    final bottom = <BottomNavigationBarItem>[
       const BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: 'home'
@@ -34,19 +36,20 @@ class _navbarState extends State<navbar> {
           label: 'Search'
       ),
       const BottomNavigationBarItem(
-          icon: Icon(Icons.history),
-          label: 'History'
-      ),
-      const BottomNavigationBarItem(
           icon: Icon(Icons.person_2_outlined),
           label: 'Profile'
       ),
+      const BottomNavigationBarItem(
+          icon: Icon(Icons.history),
+          label: 'History'
+      ),
+
     ];
 
-    final _bottomNavBar = BottomNavigationBar(
+    final bottomNavBar = BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       backgroundColor: Colors.black,
-      items: _bottom,
+      items: bottom,
       currentIndex: _selected,
       unselectedItemColor: Colors.grey,
       selectedItemColor: Colors.blueAccent,
@@ -55,11 +58,11 @@ class _navbarState extends State<navbar> {
 
     return Scaffold(
       body: Center(
-        child: _listpage[
-          _selected
+        child: listpage[
+        _selected
         ],
       ),
-      bottomNavigationBar: _bottomNavBar,
+      bottomNavigationBar: bottomNavBar,
     );
   }
 }
