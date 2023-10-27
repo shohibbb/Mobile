@@ -4,6 +4,7 @@ import 'package:praktikum1/Search.dart';
 import 'package:praktikum1/kategori/HomeView.dart';
 import 'package:praktikum1/kategori/Navcontroller.dart';
 import 'package:praktikum1/kategori/ProfileView.dart';
+import 'package:praktikum1/kategori/SearchView.dart';
 
 class Navbar extends StatelessWidget {
   final AppController controller = Get.put(AppController());
@@ -12,7 +13,7 @@ class Navbar extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> listpage = [
       Home(),
-      SearchBarApp(),
+      SearchView(),
       ProfileView(),
     ];
 
