@@ -2,7 +2,9 @@
 // import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
 // import 'package:image_picker/image_picker.dart';
-//
+// void main(){
+//   runApp(Profile());
+// }
 // class ImageModel {
 //   final String title;
 //   final String description;

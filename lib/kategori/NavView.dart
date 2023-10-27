@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:praktikum1/Search.dart';
 import 'package:praktikum1/kategori/HomeView.dart';
 import 'package:praktikum1/kategori/Navcontroller.dart';
 import 'package:praktikum1/kategori/ProfileView.dart';

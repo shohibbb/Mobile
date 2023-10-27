@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:praktikum1/kategori/ProfileModel.dart';
 
+
 class ProfileController extends GetxController {
   final ImagePicker imagePicker = ImagePicker();
   final images = <ImageModel>[].obs;
