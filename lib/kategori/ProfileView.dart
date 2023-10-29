@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:praktikum1/Home.dart';
+import 'package:praktikum1/web_view.dart';
 import 'package:praktikum1/kategori/ProfileController.dart';
 
 class ProfileView extends GetView<ProfileController> {
