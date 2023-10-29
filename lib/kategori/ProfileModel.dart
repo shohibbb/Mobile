@@ -4,4 +4,5 @@ class ImageModel {
   final String imagePath;
 
   ImageModel(this.title, this.description, this.imagePath);
+  
 }

@@ -1,24 +1,39 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:praktikum1/Home.dart';
 import 'package:praktikum1/kategori/ProfileController.dart';
 
 class ProfileView extends GetView<ProfileController> {
+  @override
   final ProfileController controller = Get.put(ProfileController());
-   ProfileView({super.key});
+  ProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      routes: {'/home': (context) => const WebViewApp()},
       home: Scaffold(
         backgroundColor: const Color(0xFF34303E),
-        appBar: AppBar(title: const Text('profile'),),
         body: Center(
           child: Column(
             children: [
-
+              const SizedBox(
+                height: 40,
+              ),
+              Row(
+                children: [
+                  IconButton(
+                      icon: const Icon(Icons.info_outline),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const WebViewApp()));
+                      }),
+                ],
+              ),
               ElevatedButton(
                 onPressed: () {
                   Get.bottomSheet(
@@ -29,7 +44,8 @@ class ProfileView extends GetView<ProfileController> {
                           title: const Text('Take a picture'),
                           tileColor: Colors.white,
                           onTap: () {
-                            Get.find<ProfileController>().pickImage(ImageSource.camera);
+                            Get.find<ProfileController>()
+                                .pickImage(ImageSource.camera);
                             Get.back();
                           },
                         ),
@@ -38,7 +54,8 @@ class ProfileView extends GetView<ProfileController> {
                           title: const Text('Choose from gallery'),
                           tileColor: Colors.white,
                           onTap: () {
-                            Get.find<ProfileController>().pickImage(ImageSource.gallery);
+                            Get.find<ProfileController>()
+                                .pickImage(ImageSource.gallery);
                             Get.back();
                           },
                         ),
@@ -68,7 +85,7 @@ class ProfileView extends GetView<ProfileController> {
               ),
               Expanded(
                 child: Obx(
-                      () => ListView.builder(
+                  () => ListView.builder(
                     shrinkWrap: true,
                     itemCount: Get.find<ProfileController>().images.length,
                     itemBuilder: (context, index) {
@@ -86,7 +103,6 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                 ),
               ),
-
             ],
           ),
         ),
