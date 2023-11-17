@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:praktikum1/web_view.dart';
-import 'package:praktikum1/kategori/ProfileController.dart';
+import 'package:praktikum1/Controller/ProfileController.dart';
 
 class ProfileView extends GetView<ProfileController> {
   @override

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:praktikum1/kategori/ProfileModel.dart';
+import 'package:praktikum1/Model/ProfileModel.dart';
 
 
 class ProfileController extends GetxController {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:praktikum1/kategori/SearchController.dart';
+import 'package:praktikum1/Controller/SearchController.dart';
 
 
 class SearchView extends GetView<MySearchController> {

@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:praktikum1/kategori/HomeController.dart';
+import 'package:praktikum1/Controller/HomeController.dart';
 
 class Home extends StatelessWidget {
   final HomeController controller = Get.put(HomeController());

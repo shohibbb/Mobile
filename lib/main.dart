@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:praktikum1/kategori/HomeView.dart';
-import 'package:praktikum1/kategori/NavView.dart';
+import 'package:praktikum1/View/NavView.dart';
 
 void main() {
   runApp(const MyApp());

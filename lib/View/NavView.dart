@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:praktikum1/kategori/HomeView.dart';
-import 'package:praktikum1/kategori/Navcontroller.dart';
-import 'package:praktikum1/kategori/ProfileView.dart';
-import 'package:praktikum1/kategori/SearchView.dart';
+import 'package:praktikum1/View/HomeView.dart';
+import 'package:praktikum1/Controller/Navcontroller.dart';
+import 'package:praktikum1/View/ProfileView.dart';
+import 'package:praktikum1/View/SearchView.dart';
 
 class Navbar extends StatelessWidget {
   final AppController controller = Get.put(AppController());
