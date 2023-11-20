@@ -6,6 +6,8 @@ import 'package:praktikum1/Controller/SearchController.dart';
 class SearchView extends GetView<MySearchController> {
   @override
   final MySearchController controller = Get.put(MySearchController());
+
+  SearchView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

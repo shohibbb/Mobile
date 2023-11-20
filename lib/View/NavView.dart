@@ -8,6 +8,8 @@ import 'package:praktikum1/View/SearchView.dart';
 class Navbar extends StatelessWidget {
   final AppController controller = Get.put(AppController());
 
+  Navbar({super.key});
+
   @override
   Widget build(BuildContext context) {
     final List<Widget> listpage = [
@@ -18,13 +20,13 @@ class Navbar extends StatelessWidget {
 
     return Scaffold(
       body: Obx(
-            () => IndexedStack(
+        () => IndexedStack(
           index: controller.model.selectedPageIndex.value,
           children: listpage,
         ),
       ),
       bottomNavigationBar: Obx(
-            () => BottomNavigationBar(
+        () => BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.black,
           items: const [

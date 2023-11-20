@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "142960747754",
+    "project_id": "otakudesu-62755",
+    "storage_bucket": "otakudesu-62755.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142960747754:android:a6159404759a07e16d2393",
+        "android_client_info": {
+          "package_name": "com.example.praktikum1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsBle2VSA-irSDyueUF5Qo06JCHZAogyU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,6 +6,8 @@ import 'package:praktikum1/Controller/HomeController.dart';
 class Home extends StatelessWidget {
   final HomeController controller = Get.put(HomeController());
 
+  Home({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

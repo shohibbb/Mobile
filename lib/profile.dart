@@ -121,3 +121,6 @@
 //     );
 //   }
 // }
+// GetMaterialApp(
+// routes: {'/webview': (context) => const WebViewApp()},
+// home:

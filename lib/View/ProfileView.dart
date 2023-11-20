@@ -2,19 +2,20 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:praktikum1/web_view.dart';
+import 'package:praktikum1/Controller/AuthController.dart';
+import 'package:praktikum1/View/Register_View.dart';
+import 'package:praktikum1/View/web_view.dart';
 import 'package:praktikum1/Controller/ProfileController.dart';
 
 class ProfileView extends GetView<ProfileController> {
   @override
   final ProfileController controller = Get.put(ProfileController());
+  final AuthController _authController = Get.put(AuthController());
   ProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      routes: {'/home': (context) => const WebViewApp()},
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: const Color(0xFF34303E),
         body: Center(
           child: Column(
@@ -26,11 +27,9 @@ class ProfileView extends GetView<ProfileController> {
                 children: [
                   IconButton(
                       icon: const Icon(Icons.info_outline),
+                      color: Colors.blueAccent,
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const WebViewApp()));
+                        Get.to(const WebViewApp());
                       }),
                 ],
               ),
@@ -63,25 +62,40 @@ class ProfileView extends GetView<ProfileController> {
                     ),
                   );
                 },
-                child: const Text('Upload Image'),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        _authController.isLoading.value
+                            ? Colors.grey
+                            : Colors.blue)),
+                child: const Text('Upload Image',style: TextStyle(color: Colors.black87)),
               ),
-              const TextField(
-                decoration: InputDecoration(
-                  labelText: 'Name',
-                ),
-              ),
-              const SizedBox(height: 16),
-              const TextField(
-                decoration: InputDecoration(
-                  labelText: 'Email',
-                ),
-              ),
-              const SizedBox(height: 16),
-              const TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                ),
+              const SizedBox(height: 50.0,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Atur tata letak tombol di sini
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Get.to(const RegisterPage());
+                    },
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            _authController.isLoading.value
+                                ? Colors.grey
+                                : Colors.blue)),
+                    child: const Text('Sign In',style: TextStyle(color: Colors.black87),),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      _authController.logout();
+                    },
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            _authController.isLoading.value
+                                ? Colors.grey
+                                : Colors.blue)),
+                    child: const Text('Log Out',style: TextStyle(color: Colors.black87)),
+                  ),
+                ],
               ),
               Expanded(
                 child: Obx(
@@ -106,7 +120,6 @@ class ProfileView extends GetView<ProfileController> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
