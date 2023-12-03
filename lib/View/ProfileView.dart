@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:praktikum1/Controller/AuthController.dart';
+import 'package:praktikum1/Controller/database_controller.dart';
 import 'package:praktikum1/View/Register_View.dart';
+import 'package:praktikum1/View/data_page.dart';
 import 'package:praktikum1/View/edit_profile.dart';
 import 'package:praktikum1/View/web_view.dart';
 import 'package:praktikum1/Controller/ProfileController.dart';
@@ -12,6 +14,8 @@ class ProfileView extends GetView<ProfileController> {
   @override
   final ProfileController controller = Get.put(ProfileController());
   final AuthController _authController = Get.put(AuthController());
+  final DatabaseController databaseController = Get.put(DatabaseController());
+
   ProfileView({super.key});
 
   @override
@@ -96,13 +100,13 @@ class ProfileView extends GetView<ProfileController> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  Get.to(const InputNameAgePage());
+                  Get.to(NewPage());
                 },
                 style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(
-                    _authController.isLoading.value
-                        ? Colors.grey
-                        : Colors.blue)),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        _authController.isLoading.value
+                            ? Colors.grey
+                            : Colors.blue)),
                 child: const Text('Edit Profile',
                     style: TextStyle(color: Colors.black87))),
             const SizedBox(

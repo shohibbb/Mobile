@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:praktikum1/Controller/database_controller.dart';
 
-class InputNameAgePage extends StatefulWidget {
-  const InputNameAgePage({super.key});
+class EditProfile extends StatefulWidget {
+  const EditProfile({super.key});
 
   @override
-  State<InputNameAgePage> createState() => _InputNameAgePageState();
+  State<EditProfile> createState() => _InputNameAgePageState();
 }
 
-class _InputNameAgePageState extends State<InputNameAgePage> {
+class _InputNameAgePageState extends State<EditProfile> {
   final _nameController = TextEditingController();
   final _ageController = TextEditingController();
 
@@ -42,8 +42,8 @@ class _InputNameAgePageState extends State<InputNameAgePage> {
                 final name = _nameController.text;
                 final age = int.parse(_ageController.text);
 
-                final databaseController = Get.find<DatabaseController>();
-                databaseController.storeUserName(name as Map );
+                final databaseController = Get.put(DatabaseController());
+                databaseController.storeUserName(name, age);
               },
               child: const Text('Simpan'),
             ),
