@@ -40,7 +40,12 @@ class Home extends StatelessWidget {
               );
             }).toList(),
           ),
-          const SizedBox(height: 30),
+          const SizedBox(height: 15),
+          const Text('TYPE OF COMIC',
+            style: TextStyle(color: Colors.white,),
+            textAlign: TextAlign.left,
+          ),
+          const SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -58,6 +63,27 @@ class Home extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 30),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 16.0),
+                child: Text('NEW UPDATE',
+                  style: TextStyle(color: Colors.white,),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: 16.0),
+                child: Text('SEE ALL',
+                  style: TextStyle(color: Colors.white,),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+            ],
+          ),
+
+          const SizedBox(height: 15),
           Container(
             width: 441,
             decoration: BoxDecoration(

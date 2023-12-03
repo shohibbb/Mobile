@@ -14,6 +14,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _namecontroller = TextEditingController();
 
   @override
   void dispose() {
@@ -38,6 +39,13 @@ class _RegisterPageState extends State<RegisterPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             TextField(
+              controller: _namecontroller,
+              decoration: const InputDecoration(
+                labelText: 'Username',
+                labelStyle: TextStyle(color: Colors.blueAccent),
+              ),
+            ),
+            TextField(
               controller: _emailController,
               decoration: const InputDecoration(
                   labelText: 'Email',
@@ -51,6 +59,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   labelStyle: TextStyle(color: Colors.blueAccent),
               ),
             ),
+
             const SizedBox(height: 16),
             Obx(() {
               return ElevatedButton(
@@ -58,7 +67,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ? null
                     : () {
                         _authController.registerUser(
-                            _emailController.text, _passwordController.text);
+                            _namecontroller.text,_emailController.text, _passwordController.text);
                       },
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
