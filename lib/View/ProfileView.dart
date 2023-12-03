@@ -6,7 +6,6 @@ import 'package:praktikum1/Controller/AuthController.dart';
 import 'package:praktikum1/Controller/database_controller.dart';
 import 'package:praktikum1/View/Register_View.dart';
 import 'package:praktikum1/View/data_page.dart';
-import 'package:praktikum1/View/edit_profile.dart';
 import 'package:praktikum1/View/web_view.dart';
 import 'package:praktikum1/Controller/ProfileController.dart';
 
@@ -100,7 +99,7 @@ class ProfileView extends GetView<ProfileController> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  Get.to(NewPage());
+                  Get.to(const DataPage());
                 },
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(

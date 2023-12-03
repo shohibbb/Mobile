@@ -1,59 +1,57 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:praktikum1/Controller/ProfileController.dart';
 import 'package:praktikum1/Controller/database_controller.dart';
+import 'package:get/get.dart';
 
-class NewPage extends GetView<ProfileController> {
+class DataPage extends StatefulWidget {
+  const DataPage({super.key});
+
+  @override
+  _DataPageState createState() => _DataPageState();
+}
+
+class _DataPageState extends State<DataPage> {
   final DatabaseController databaseController = Get.put(DatabaseController());
 
-  NewPage({super.key});
+  void initState() {
+    super.initState();
+    databaseController.getProfile(); // Call getProfile() method in initState()
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('New Page'),
-      ),
+      backgroundColor: const Color(0xFF34303E),
+      // appBar: AppBar(
+      //   title: const Text('Data Page'),
+      // ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ElevatedButton(
-              onPressed: () {
-                databaseController.getProfile(); // Call the getProfile() method
-              },
-              child: const Text('Get Profile'),
+            const SizedBox(
+              height: 50,
             ),
-            const SizedBox(height: 20.0),
-            Obx(
-                  () => Column(
-                children: [
-                  TextField(
-                    readOnly: true, // Make the 'Nama' field read-only
-                    controller: TextEditingController(
-                      text: databaseController.messages.value
-                          .first['nama']
-                          .toString(), // Extract nama from messages and convert to String
-                    ),
-                    decoration: const InputDecoration(
-                      labelText: 'Nama',
-                    ),
-                  ),
-                  const SizedBox(height: 10.0),
-                  TextField(
-                    readOnly: true, // Make the 'Umur' field read-only
-                    controller: TextEditingController(
-                      text: databaseController.messages.value
-                          .first['umur']
-                          .toString(), // Extract umur from messages and convert to String
-                    ),
-                    decoration: const InputDecoration(
-                      labelText: 'Umur',
-                    ),
-                  ),
-                ],
-              ),
+            const Text(
+              'Selamat membaca user',
+              style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
             ),
+            const SizedBox(height: 40),
+            Text(
+              'Name : ${databaseController.messages.value.first['nama'].toString()}',
+              style: const TextStyle(color: Colors.white, fontSize: 20),
+              textAlign: TextAlign.start,
+            ),
+            const SizedBox(height: 20),
+            Text(
+              'Age : ${databaseController.messages.value.first['umur'].toString()}',
+              style: const TextStyle(color: Colors.white, fontSize: 20),
+              textAlign: TextAlign.start,
+            ),
+            const SizedBox(height: 20),
           ],
         ),
       ),
