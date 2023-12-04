@@ -14,7 +14,7 @@ class _DataPageState extends State<DataPage> {
 
   void initState() {
     super.initState();
-    databaseController.getProfile(); // Call getProfile() method in initState()
+    databaseController.getProfile("656d3ae19db178d1cdf2"); // Call getProfile() method in initState()
   }
 
   @override
@@ -41,13 +41,19 @@ class _DataPageState extends State<DataPage> {
             ),
             const SizedBox(height: 40),
             Text(
-              'Name : ${databaseController.messages.value.first['nama'].toString()}',
+              'Name   : ${databaseController.messages.value.first['nama'].toString()}',
               style: const TextStyle(color: Colors.white, fontSize: 20),
               textAlign: TextAlign.start,
             ),
             const SizedBox(height: 20),
             Text(
-              'Age : ${databaseController.messages.value.first['umur'].toString()}',
+              'Age  : ${databaseController.messages.value.first['umur'].toString()}',
+              style: const TextStyle(color: Colors.white, fontSize: 20),
+              textAlign: TextAlign.start,
+            ),
+            const SizedBox(height: 20),
+            Text(
+              'Favorite : ${databaseController.messages.value.first['Favorite_Genre'].toString()}',
               style: const TextStyle(color: Colors.white, fontSize: 20),
               textAlign: TextAlign.start,
             ),

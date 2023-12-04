@@ -27,7 +27,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color(0xFF34303E),
+      backgroundColor: const Color(0xFF34303E),
       appBar: AppBar(
         title: const Text('Register'),
         backgroundColor: Colors.blueAccent,
@@ -40,6 +40,7 @@ class _RegisterPageState extends State<RegisterPage> {
           children: [
             TextField(
               controller: _namecontroller,
+              style: const TextStyle(color: Colors.white),
               decoration: const InputDecoration(
                 labelText: 'Username',
                 labelStyle: TextStyle(color: Colors.blueAccent),
@@ -47,12 +48,14 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             TextField(
               controller: _emailController,
+              style: const TextStyle(color: Colors.white),
               decoration: const InputDecoration(
                   labelText: 'Email',
                   labelStyle: TextStyle(color: Colors.blueAccent)),
             ),
             TextField(
               controller: _passwordController,
+              style: const TextStyle(color: Colors.white),
               obscureText: true,
               decoration: const InputDecoration(
                   labelText: 'Password',

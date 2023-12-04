@@ -13,8 +13,12 @@ class DatabaseController extends ClientControler {
     databases = Databases(client);
   }
 
-  Future storeUserName(String name, int age) async {
-    Map<String, dynamic> data = {'nama': name, 'umur': age};
+  Future storeUserName(String name, int age, String FavGenre) async {
+    Map<String, dynamic> data = {
+      'nama': name,
+      'umur': age,
+      'Favorite_Genre': FavGenre
+    };
     try {
       await databases!.createDocument(
           databaseId: "656c3fc70b7ff3754b6f",
@@ -26,7 +30,16 @@ class DatabaseController extends ClientControler {
             Permission.update(Role.any()),
             Permission.delete(Role.any()),
           ]);
-      print("DatabaseController:: storeUserName");
+      Get.defaultDialog(
+          title: "Success",
+          titlePadding: const EdgeInsets.only(top: 15, bottom: 5),
+          titleStyle: Get.context?.theme.textTheme.titleLarge,
+          content: Text(
+            "Data Uploaded",
+            style: Get.context?.theme.textTheme.bodyMedium,
+            textAlign: TextAlign.center,
+          ),
+          contentPadding: const EdgeInsets.only(top: 5, left: 15, right: 15));
     } catch (error) {
       Get.defaultDialog(
           title: "Error Database",
@@ -43,24 +56,97 @@ class DatabaseController extends ClientControler {
 
   Rx<List<Map<String, dynamic>>> messages = Rx<List<Map<String, dynamic>>>([]);
 
-  Future<void> getProfile() async {
+  Future<void> getProfile(String documentId) async {
     try {
-      // Ganti dengan kode untuk mengambil data pesan dari database
-      // Contoh pengambilan data dari database
-      final response = await databases!.listDocuments(
+      final response = await databases!.getDocument(
         databaseId: "656c3fc70b7ff3754b6f",
         collectionId: "656c3ff18d52229082f1",
-
+        documentId: documentId,
       );
 
-      // ignore: unnecessary_null_comparison
-      if (response.documents != null) {
-        List<Map<String, dynamic>> convertedMessages =
-        response.documents.map((document) => document.data).toList();
-        messages.value = convertedMessages;
+      if (response.data != null) {
+        Map<String, dynamic> convertedMessage = response.data;
+        messages.value = [convertedMessage];
+      } else {
+        print("No data found for document ID: $documentId");
       }
     } catch (error) {
       print("Error: $error");
     }
   }
+
+  Future<void> editProfile(String documentId, String newName, int newAge, String newFavGenre) async {
+    try {
+      Map<String, dynamic> newData = {
+        'nama': newName,
+        'umur': newAge,
+        'Favorite_Genre': newFavGenre,
+      };
+
+      await databases!.updateDocument(
+        databaseId: "656c3fc70b7ff3754b6f",
+        collectionId: "656c3ff18d52229082f1",
+        documentId: documentId,
+        data: newData,
+      );
+
+      Get.defaultDialog(
+        title: "Success",
+        titlePadding: const EdgeInsets.only(top: 15, bottom: 5),
+        titleStyle: Get.context?.theme.textTheme.titleLarge,
+        content: Text(
+          "Data Updated",
+          style: Get.context?.theme.textTheme.bodyMedium,
+          textAlign: TextAlign.center,
+        ),
+        contentPadding: const EdgeInsets.only(top: 5, left: 15, right: 15),
+      );
+    } catch (error) {
+      Get.defaultDialog(
+        title: "Error Database",
+        titlePadding: const EdgeInsets.only(top: 15, bottom: 5),
+        titleStyle: Get.context?.theme.textTheme.titleLarge,
+        content: Text(
+          "$error",
+          style: Get.context?.theme.textTheme.bodyMedium,
+          textAlign: TextAlign.center,
+        ),
+        contentPadding: const EdgeInsets.only(top: 5, left: 15, right: 15),
+      );
+    }
+  }
+  Future<void> deleteProfile(String documentId) async {
+    try {
+      await databases!.deleteDocument(
+        databaseId: "656c3fc70b7ff3754b6f",
+        collectionId: "656c3ff18d52229082f1",
+        documentId: documentId,
+      );
+
+      Get.defaultDialog(
+        title: "Success",
+        titlePadding: const EdgeInsets.only(top: 15, bottom: 5),
+        titleStyle: Get.context?.theme.textTheme.titleLarge,
+        content: Text(
+          "Data Deleted",
+          style: Get.context?.theme.textTheme.bodyMedium,
+          textAlign: TextAlign.center,
+        ),
+        contentPadding: const EdgeInsets.only(top: 5, left: 15, right: 15),
+      );
+    } catch (error) {
+      Get.defaultDialog(
+        title: "Error Database",
+        titlePadding: const EdgeInsets.only(top: 15, bottom: 5),
+        titleStyle: Get.context?.theme.textTheme.titleLarge,
+        content: Text(
+          "$error",
+          style: Get.context?.theme.textTheme.bodyMedium,
+          textAlign: TextAlign.center,
+        ),
+        contentPadding: const EdgeInsets.only(top: 5, left: 15, right: 15),
+      );
+    }
+  }
+
 }
