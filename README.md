@@ -1,16 +1,26 @@
-# praktikum1
+# 📖 Aplikasi Komik dengan Flutter
 
-A new Flutter project for training
+Aplikasi ini adalah sebuah aplikasi komik berbasis Flutter yang dikembangkan dengan arsitektur **Model-View-Controller (MVC)**. Aplikasi ini memungkinkan pengguna untuk membaca komik secara interaktif dengan navigasi yang mudah.
 
-## Getting Started
+## 🛠 Teknologi yang Digunakan
+- **Flutter**: Framework utama untuk pengembangan aplikasi
+- **Dart**: Bahasa pemrograman yang digunakan
+- **GetX**: State management dan dependency injection
 
-This project is a starting point for a Flutter application.
+## 📂 Struktur Folder
+Seluruh kode aplikasi berada dalam folder `lib/`, yang terdiri dari:
+```
+lib/
+│── controller/   # Berisi logic aplikasi (Controller dalam MVC)
+│── model/        # Berisi definisi model data
+│── view/         # Berisi UI dan tampilan aplikasi
+```
 
-A few resources to get you started if this is your first Flutter project:
+## ✨ Fitur Aplikasi
+- Menampilkan daftar komik
+- Membaca komik dengan navigasi yang nyaman
+- Menggunakan **GetX** untuk manajemen state
+- UI yang responsif dan ringan
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📜 Lisensi
+Aplikasi ini dikembangkan untuk keperluan pribadi dan open-source. Anda dapat menggunakan, memodifikasi, dan mendistribusikannya sesuai dengan kebutuhan Anda.
